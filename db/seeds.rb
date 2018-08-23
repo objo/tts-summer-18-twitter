@@ -1,9 +1,16 @@
+QUOTES = [
+  Faker::Lebowski,
+  Faker::MichaelScott,
+  Faker::PrincessBride,
+  Faker::Simpsons,
+]
+
 def create_messages(user)
   puts "Creating messages for #{user.full_name}"
   20.times {
     putc "."
     user.messages.create!({
-      body: Faker::Seinfeld.quote,
+      body: QUOTES.sample.quote,
       created_at: Faker::Date.between(2.weeks.ago, Time.now),
     })
   }

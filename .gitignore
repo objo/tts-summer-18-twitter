@@ -32,3 +32,6 @@
 
 .DS_Store
 aws.creds
+
+# Ignore application configuration
+/config/application.yml

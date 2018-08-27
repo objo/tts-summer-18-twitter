@@ -5,6 +5,8 @@ QUOTES = [
   Faker::Simpsons,
 ]
 
+IMAGES_DIR = File.expand_path(File.dirname(__FILE__) + "/../app/assets/images")
+
 def create_messages(user)
   puts "Creating messages for #{user.full_name}"
   20.times {
@@ -41,7 +43,7 @@ puts "Deleting fake users"
 User.where(fake: true).destroy_all
 
 puts "Generating fake users\n"
-10.times do
+10.times do |time|
   u = User.new({
     username:   Faker::Internet.username,
     first_name: Faker::Name.first_name,
@@ -54,6 +56,9 @@ puts "Generating fake users\n"
     password:   "123456",
     password_confirmation: "123456",
   })
+  filename = "stock-profile-#{time + 1}.jpeg"
+  u.avatar.attach(io: File.open(IMAGES_DIR + "/" + filename), filename: filename)
   u.save!
+  sleep 3
   create_messages(u)
 end

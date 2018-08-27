@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :messages
-  
+  has_one_attached :avatar
+
   def full_name
     "#{first_name} #{last_name}"
   end

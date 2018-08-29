@@ -22,3 +22,13 @@ textarea {
   width: 100%;
   height: 100px;
 }
+
+.user {
+  float: left;
+  height: 200px;
+  margin: 20px;
+}
+
+.avatar {
+  object-fit: cover;
+}

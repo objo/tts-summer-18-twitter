@@ -1,6 +1,9 @@
 <% @users.each do |user| %>
   <div class="user">
-    <%= render "shared/avatar", user: user, width: "100px" %>
-    <p><%= link_to "@#{user.username}", user_path(id: user.id) %></p>
+    <div class="card bg-info" style="width: 150px;">
+      <%= render "shared/avatar", user: user, width: "150px" %>
+
+      <p class='text-center'><%= link_to "@#{user.username}", user_path(id: user.id), class: "text-light"%></p>
+    </div>
   </div>
 <% end %>

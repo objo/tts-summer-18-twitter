@@ -11,11 +11,17 @@
   width: 50px;
   float: left;
   padding: 10px;
+  margin-bottom: 30px;
 }
 
 .message-date {
   color: #ADABAA;
   font-size: .8em;
+  margin-left: 10px;
+}
+
+.message-body {
+  padding-top: 5px;
 }
 
 textarea {

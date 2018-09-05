@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
@@ -29,5 +30,12 @@ function tweetSubmitted() {
 $(document).ready(tweetSubmitted);
 
 function deleteTweet(id) {
-  $("#message-" + id).slideUp();
+  $.ajax({
+      url: '/messages/' + id,
+      type: 'DELETE',
+      data: { authenticity_token: $('[name="csrf-token"]')[0].content},
+      success: function(result) {
+        $('#message-' + id).fadeOut(500);
+      }
+  });
 }

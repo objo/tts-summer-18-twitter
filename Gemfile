@@ -68,6 +68,7 @@ gem 'faker'
 gem 'devise'
 gem 'figaro'
 gem 'aws-sdk-s3'
+gem 'jquery-ui-rails'
 
 group :production do
   gem 'pg'

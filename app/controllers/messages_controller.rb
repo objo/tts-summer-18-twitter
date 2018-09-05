@@ -6,6 +6,11 @@ class MessagesController < ApplicationController
     redirect_to timeline_path
   end
 
+  def destroy
+    message = Message.find(params[:id])
+    message.destroy
+  end
+
   private
   def message_params
     params.require(:message).permit(:body)
